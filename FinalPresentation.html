@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predicting Species on Iris Data Set</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Predicting Species on Iris Data Set">
+  <meta name="author" content="Mani Khanuja">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Predicting Species on Iris Data Set</h1>
+    <h2>Classification Trees</h2>
+    <p>Mani Khanuja<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Objective</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Create a shiny app to perform predicitive analysis. </li>
+<li>Identify the species based on Sepal &amp; Petal characteristics</li>
+<li>Algorithm used: Classification Trees</li>
+<li>User enters the length &amp; width of Petal &amp; sepal and alogrithm predicts the species based on the Iris data set. </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Accuracy of Classification Trees Algorithm on Iris Data</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">modFit &lt;- train(Species ~., method = &quot;rpart&quot;, data = training)
+modFit$results
+</code></pre>
+
+<pre><code>##          cp  Accuracy     Kappa AccuracySD    KappaSD
+## 1 0.0000000 0.9657722 0.9480454 0.02968699 0.04499894
+## 2 0.4736842 0.6950451 0.5476749 0.16191302 0.24189425
+## 3 0.5000000 0.5165789 0.3029570 0.15311956 0.19754665
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Prediction Example</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">predictfinal &lt;- predict(modFit, testing, type=&quot;raw&quot;)
+predictfinal
+</code></pre>
+
+<pre><code>##  [1] setosa     setosa     setosa     setosa     setosa     setosa    
+##  [7] setosa     setosa     setosa     setosa     setosa     setosa    
+## [13] versicolor versicolor versicolor versicolor versicolor virginica 
+## [19] versicolor versicolor virginica  versicolor versicolor versicolor
+## [25] virginica  versicolor virginica  virginica  virginica  virginica 
+## [31] virginica  virginica  versicolor virginica  versicolor virginica 
+## Levels: setosa versicolor virginica
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>More Information</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>All documents and resources are present in the <a href="https://github.com/manikhanuja/Data_Products">github repository</a></li>
+</ul>
+
+<h4>Thank You!</h4>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Objective'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Accuracy of Classification Trees Algorithm on Iris Data'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Prediction Example'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='More Information'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
